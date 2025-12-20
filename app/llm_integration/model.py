@@ -1,18 +1,18 @@
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from typing import Optional, List
+from typing import Optional, List, Set
 from app.token_compression.config import CompressionConfig
+from app.llm_integration.attention import replace_attention_layers
 
 
 class CompressedLLM:
-    """
-    Wrapper for LLM that handles compressed text input.
-    """
+    """Wrapper for LLM that handles compressed text input with custom attention."""
 
     def __init__(
         self,
         model_name: str = "Qwen/Qwen2.5-0.5B",
         config: Optional[CompressionConfig] = None,
+        enable_decompression_detection: bool = True,
     ):
         self.config = config or CompressionConfig()
         self.tokenizer = AutoTokenizer.from_pretrained(
@@ -23,17 +23,18 @@ class CompressedLLM:
             model_name,
             trust_remote_code=True,
             dtype=torch.float16,
+            attn_implementation="eager",
         ).to(device)
+        self._reference_token_ids: Set[int] = set()
         self._setup_special_tokens()
 
+        if enable_decompression_detection:
+            self._setup_custom_attention()
+
     def _setup_special_tokens(self):
-        """Ensure tokenizer handles our compression tokens correctly."""
-        # Add dictionary tokens and reference markers if not present
         special_tokens = ["‹", "›"]
-        # Add a few common dictionary tokens to ensure they are single tokens
         common_dict_tokens = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"]
 
-        # Check if we need to add tokens
         new_tokens = []
         for token in special_tokens + common_dict_tokens:
             if (
@@ -46,12 +47,30 @@ class CompressedLLM:
             self.tokenizer.add_tokens(new_tokens)
             self.model.resize_token_embeddings(len(self.tokenizer))
 
+        self._build_reference_token_ids()
+
+    def _build_reference_token_ids(self):
+        reference_markers = ["‹", "›"] + [
+            "①",
+            "②",
+            "③",
+            "④",
+            "⑤",
+            "⑥",
+            "⑦",
+            "⑧",
+            "⑨",
+            "⑩",
+        ]
+        for marker in reference_markers:
+            token_id = self.tokenizer.convert_tokens_to_ids(marker)
+            if token_id != self.tokenizer.unk_token_id:
+                self._reference_token_ids.add(token_id)
+
+    def _setup_custom_attention(self):
+        replace_attention_layers(self.model, self._reference_token_ids)
+
     def generate(self, compressed_prompt: str, max_new_tokens: int = 50) -> str:
-        """
-        Generate text from a compressed prompt.
-        For now, this just passes the compressed text directly to the model
-        to see how it handles the tokens.
-        """
         inputs = self.tokenizer(compressed_prompt, return_tensors="pt").to(
             self.model.device
         )
@@ -66,5 +85,4 @@ class CompressedLLM:
         return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
     def get_token_ids(self, text: str) -> List[int]:
-        """Helper to inspect tokenization."""
         return self.tokenizer.encode(text)
