@@ -1,5 +1,23 @@
 # Changelog
 
+## [2025-12-20] - Phase 4: Main Runner API
+
+- Streamlined `app/main_runner/` to 3 files:
+  - `config.py`: Config dataclass (model, adapter, API settings)
+  - `qa_service.py`: QAService - loads model, compresses context, answers questions
+  - `api.py`: FastAPI server with `/ask` endpoint
+- Removed redundant files (cli.py, pipeline.py, service.py)
+- Run server: `python -m app.main_runner.api`
+- POST `/ask` with `{context, question}` → `{answer, compression_ratio}`
+
+## [2025-12-20] - Phase 3: Comprehensive Kaggle Notebook
+
+- Created comprehensive `notebooks/kaggle_finetune.ipynb` with 16 cells
+- Each package in its own cell: token_compression, shared/logger, llm_integration, fine_tuning
+- Includes all dictionary tokens (① to ⑩ + Ⓐ to Ⓠ) for complete compression support
+- Added evaluation cell that tests decompression on 10 samples with accuracy reporting
+- Notebook is standalone and runs on Kaggle with GPU (user uploads training_pairs.json)
+
 ## [2025-12-20] - Phase 3: Fine-Tuning Setup
 
 - Created `app/fine_tuning/` package with LoRA-based training pipeline
