@@ -210,3 +210,7 @@ __marimo__/
 .idea/
 
 /HANDOFF_NEXT_CHAT.md
+
+# Project-specific ignores
+data/
+models/
