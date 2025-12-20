@@ -2,6 +2,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from typing import Optional, List, Set
 from app.token_compression.config import CompressionConfig
+from app.token_compression.dictionary import DICTIONARY
 from app.llm_integration.attention import replace_attention_layers
 
 
@@ -30,13 +31,13 @@ class CompressedLLM:
             self._setup_custom_attention()
 
     def _setup_special_tokens(self):
-        special_tokens = ["‹", "›"]
-        common_dict_tokens = ["①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"]
+        lz77_tokens = ["‹", "›"]
+        dict_tokens = list(DICTIONARY.values())
 
-        new_tokens = []
-        for token in special_tokens + common_dict_tokens:
-            if self.tokenizer.convert_tokens_to_ids(token) == self.tokenizer.unk_token_id:
-                new_tokens.append(token)
+        all_tokens = lz77_tokens + dict_tokens
+        new_tokens = [
+            token for token in all_tokens if self.tokenizer.convert_tokens_to_ids(token) == self.tokenizer.unk_token_id
+        ]
 
         if new_tokens:
             self.tokenizer.add_tokens(new_tokens)
@@ -45,18 +46,10 @@ class CompressedLLM:
         self._build_reference_token_ids()
 
     def _build_reference_token_ids(self):
-        reference_markers = ["‹", "›"] + [
-            "①",
-            "②",
-            "③",
-            "④",
-            "⑤",
-            "⑥",
-            "⑦",
-            "⑧",
-            "⑨",
-            "⑩",
-        ]
+        lz77_tokens = ["‹", "›"]
+        dict_tokens = list(DICTIONARY.values())
+        reference_markers = lz77_tokens + dict_tokens
+
         for marker in reference_markers:
             token_id = self.tokenizer.convert_tokens_to_ids(marker)
             if token_id != self.tokenizer.unk_token_id:

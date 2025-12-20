@@ -4,6 +4,7 @@ from trl import SFTTrainer, SFTConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from datasets import Dataset
 from app.fine_tuning.config import FineTuningConfig
+from app.token_compression.dictionary import DICTIONARY
 from app.shared.logger import get_logger
 
 logger = get_logger(__name__)
@@ -35,14 +36,19 @@ class DecompressionTrainer:
         logger.info("Model loaded with LoRA adapters")
 
     def _add_special_tokens(self):
-        special_tokens = ["‹", "›", "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩"]
-        new_tokens = [
-            t for t in special_tokens if self.tokenizer.convert_tokens_to_ids(t) == self.tokenizer.unk_token_id
+        lz77_tokens = ["‹", "›"]
+        dict_tokens = list(DICTIONARY.values())
+
+        all_new_tokens = lz77_tokens + dict_tokens
+
+        tokens_to_add = [
+            t for t in all_new_tokens if self.tokenizer.convert_tokens_to_ids(t) == self.tokenizer.unk_token_id
         ]
-        if new_tokens:
-            self.tokenizer.add_tokens(new_tokens)
+
+        if tokens_to_add:
+            self.tokenizer.add_tokens(tokens_to_add)
             self.model.resize_token_embeddings(len(self.tokenizer))
-            logger.info(f"Added {len(new_tokens)} special tokens")
+            logger.info(f"Smart-Added {len(tokens_to_add)} special tokens from Dictionary")
 
     def _apply_lora(self):
         lora_cfg = self.config.lora
