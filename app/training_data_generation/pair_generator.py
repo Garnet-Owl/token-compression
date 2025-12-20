@@ -62,9 +62,8 @@ class PairGenerator:
 
     def load_raw_texts(self, input_path: Path) -> List[str]:
         with open(input_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        texts = content.split("---")
-        return [t.strip() for t in texts if t.strip()]
+            lines = f.readlines()
+        return [line.strip() for line in lines if line.strip()]
 
 
 if __name__ == "__main__":
