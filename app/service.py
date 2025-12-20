@@ -169,7 +169,7 @@ class LLMTextCompressor:
 
                 # Only use if we save enough characters
                 if length - len(ref) >= self.config.min_savings:
-                    return (distance, length)
+                    return distance, length
 
         return None
 
