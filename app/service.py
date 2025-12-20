@@ -8,7 +8,7 @@ A text compression algorithm inspired by DEFLATE/LZ77, optimized for:
 3. Attention-based selective decompression compatibility
 
 Author: James (with Claude)
-Date: 2024
+Date: 20th Dec 2025
 """
 
 import re
