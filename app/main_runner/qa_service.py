@@ -57,7 +57,7 @@ class QAService:
         logger.info(f"Question: {question}")
         logger.info(f"Original: {len(context)} chars → Compressed: {len(compressed)} chars")
         logger.info(f"Compression: {stats['compression_ratio']}x ({stats['token_reduction_pct']}% tokens saved)")
-        logger.info(f"Compressed text: {compressed[:200]}...")
+        logger.info(f"Compressed text: {compressed}")
 
         prompt = f"Context: {compressed}\n\nQuestion: {question}\n\nAnswer:"
 

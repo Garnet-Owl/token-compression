@@ -5,6 +5,11 @@
 
 An LLM-optimized text compression system that reduces token usage by **30-50%** while maintaining semantic understanding. The fine-tuned model can process compressed prompts directly, saving API costs.
 
+> [!NOTE]
+> This project is an experimental idea inspired by a video about ZIP compression. It explores the intersection of classical compression algorithms and LLM context window optimization.
+
+This project is **open source** and contributions are welcome! feel free to open issues or submit pull requests.
+
 ## 🎯 Key Results
 
 | Metric                | Value       |
@@ -36,11 +41,13 @@ Input Text → Dictionary Compression → LZ77 Back-References → Compressed To
 ### Environment Setup
 
 1. **Install uv** (if not already installed)
+
    ```bash
    pip install uv
    ```
 
 2. **Create a virtual environment with Python 3.12**
+
    ```bash
    uv venv --python=python3.12
    ```
@@ -48,15 +55,20 @@ Input Text → Dictionary Compression → LZ77 Back-References → Compressed To
 3. **Activate the virtual environment**
 
    Windows:
+
    ```bash
    .venv\Scripts\activate
    ```
 
    Linux/macOS:
+
    ```bash
    source .venv/bin/activate
    ```
-    ```
+
+   ```
+
+   ```
 
 4. **Install dependencies with uv**
    ```bash
