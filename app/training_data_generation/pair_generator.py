@@ -68,38 +68,24 @@ class PairGenerator:
 
 
 if __name__ == "__main__":
-    from app.training_data_generation.prompts import GENERATION_PROMPTS
 
     def main():
         generator = PairGenerator()
+        input_path = Path("data/raw_texts.txt")
+        output_path = Path("data/training_pairs.json")
 
-        sample_texts = [
-            """The database connection pool manages all database connections.
-            When a service needs a database connection, it requests one from
-            the database connection pool. The database connection pool returns
-            an available database connection. After the service is done with
-            the database connection, it returns the database connection to
-            the database connection pool for reuse.""",
-            """The quick brown fox jumps over the lazy dog. The quick brown fox
-            jumps over the lazy dog again. And again, the quick brown fox
-            jumps over the lazy dog. The lazy dog never moves because the
-            lazy dog is lazy.""",
-        ]
+        if not input_path.exists():
+            logger.error(f"Input file not found: {input_path}")
+            return
 
-        logger.info(f"Generating {len(sample_texts)} training pairs...")
+        logger.info(f"Loading raw texts from {input_path}...")
+        sample_texts = generator.load_raw_texts(input_path)
+        logger.info(f"Loaded {len(sample_texts)} samples.")
+
+        logger.info("Generating training pairs...")
         pairs = generator.generate_pairs(sample_texts)
 
-        for i, pair in enumerate(pairs):
-            logger.info(f"\n--- Pair {i + 1} ---")
-            logger.info(f"Original: {pair.original[:80]}...")
-            logger.info(f"Compressed: {pair.compressed[:80]}...")
-            logger.info(f"Ratio: {pair.compression_ratio}x")
-
-        output_path = Path("data/training_pairs.json")
         generator.save_pairs(pairs, output_path)
-
-        logger.info("\n=== Prompts for generating more data ===")
-        for i, prompt in enumerate(GENERATION_PROMPTS[:3]):
-            logger.info(f"\nPrompt {i + 1}: {prompt[:100]}...")
+        logger.info("Generation complete.")
 
     main()

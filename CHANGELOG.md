@@ -8,4 +8,7 @@
 - Replaced all print statements with logging throughout codebase
 - Created `app/training_data_generation/` package:
   - `prompts.py`: LLM prompts for generating diverse repetitive text samples
-  - `pair_generator.py`: Processes raw text → (original, compressed) pairs
+  - Created `data/raw_texts.txt` with 100 diverse, repetitive text samples
+- Updated `app/training_data_generation/pair_generator.py` to support file-based processing
+- Generated `data/training_pairs.json` with 100 (original, compressed) training pairs
+- Verified compression performance: ratios typically between 1.1x and 2.5x
