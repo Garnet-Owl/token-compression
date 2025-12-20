@@ -27,7 +27,7 @@ class CompressionService:
         return self.compressor.get_stats()
 
     @staticmethod
-    def verify_roundtrip(original: str, compressed: str, decompressed: str) -> bool:
+    def verify_roundtrip(original: str, decompressed: str) -> bool:
         """Verify lossless roundtrip."""
         # Normalize for comparison
         orig_norm = " ".join(original.split())
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             compressed = service.compress(text)
             decompressed = service.decompress(compressed)
             stats = service.get_stats()
-            passed = service.verify_roundtrip(text, compressed, decompressed)
+            passed = service.verify_roundtrip(text, decompressed)
             all_passed &= passed
 
             print(
