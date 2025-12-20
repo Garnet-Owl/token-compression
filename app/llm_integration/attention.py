@@ -17,9 +17,7 @@ logger = get_logger(__name__)
 class DecompressionAwareAttention(Qwen2Attention):
     """Qwen2 attention that detects when model attends to reference tokens."""
 
-    def __init__(
-        self, config, layer_idx: int, reference_token_ids: Optional[Set[int]] = None
-    ):
+    def __init__(self, config, layer_idx: int, reference_token_ids: Optional[Set[int]] = None):
         super().__init__(config, layer_idx)
         self.reference_token_ids = reference_token_ids or set()
         self._detection_enabled = True
@@ -45,21 +43,15 @@ class DecompressionAwareAttention(Qwen2Attention):
         value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)
 
         cos, sin = position_embeddings
-        query_states, key_states = apply_rotary_pos_emb(
-            query_states, key_states, cos, sin
-        )
+        query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
 
         if past_key_values is not None:
             cache_kwargs = {"sin": sin, "cos": cos, "cache_position": cache_position}
-            key_states, value_states = past_key_values.update(
-                key_states, value_states, self.layer_idx, cache_kwargs
-            )
+            key_states, value_states = past_key_values.update(key_states, value_states, self.layer_idx, cache_kwargs)
 
         attention_interface: Callable = eager_attention_forward
         if self.config._attn_implementation != "eager":
-            attention_interface = ALL_ATTENTION_FUNCTIONS[
-                self.config._attn_implementation
-            ]
+            attention_interface = ALL_ATTENTION_FUNCTIONS[self.config._attn_implementation]
 
         attn_output, attn_weights = attention_interface(
             self,
@@ -73,20 +65,14 @@ class DecompressionAwareAttention(Qwen2Attention):
             **kwargs,
         )
 
-        if (
-            self._detection_enabled
-            and attn_weights is not None
-            and input_ids is not None
-        ):
+        if self._detection_enabled and attn_weights is not None and input_ids is not None:
             self._detect_reference_attention(attn_weights, input_ids)
 
         attn_output = attn_output.reshape(*input_shape, -1).contiguous()
         attn_output = self.o_proj(attn_output)
         return attn_output, attn_weights
 
-    def _detect_reference_attention(
-        self, attn_weights: torch.Tensor, input_ids: torch.LongTensor
-    ):
+    def _detect_reference_attention(self, attn_weights: torch.Tensor, input_ids: torch.LongTensor):
         if not self.reference_token_ids:
             return
 
@@ -105,9 +91,7 @@ class DecompressionAwareAttention(Qwen2Attention):
             if pos < last_token_weights.shape[0]:
                 weight = last_token_weights[pos].item()
                 if weight > 0.01:
-                    logger.debug(
-                        f"Layer {self.layer_idx}: Attention to ref @ pos {pos}: {weight:.4f}"
-                    )
+                    logger.debug(f"Layer {self.layer_idx}: Attention to ref @ pos {pos}: {weight:.4f}")
 
 
 def replace_attention_layers(model, reference_token_ids: Set[int]):

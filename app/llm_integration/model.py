@@ -15,9 +15,7 @@ class CompressedLLM:
         enable_decompression_detection: bool = True,
     ):
         self.config = config or CompressionConfig()
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            model_name, trust_remote_code=True
-        )
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
         device = "cuda" if torch.cuda.is_available() else "cpu"
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
@@ -37,10 +35,7 @@ class CompressedLLM:
 
         new_tokens = []
         for token in special_tokens + common_dict_tokens:
-            if (
-                self.tokenizer.convert_tokens_to_ids(token)
-                == self.tokenizer.unk_token_id
-            ):
+            if self.tokenizer.convert_tokens_to_ids(token) == self.tokenizer.unk_token_id:
                 new_tokens.append(token)
 
         if new_tokens:
@@ -71,9 +66,7 @@ class CompressedLLM:
         replace_attention_layers(self.model, self._reference_token_ids)
 
     def generate(self, compressed_prompt: str, max_new_tokens: int = 50) -> str:
-        inputs = self.tokenizer(compressed_prompt, return_tensors="pt").to(
-            self.model.device
-        )
+        inputs = self.tokenizer(compressed_prompt, return_tensors="pt").to(self.model.device)
 
         with torch.no_grad():
             outputs = self.model.generate(

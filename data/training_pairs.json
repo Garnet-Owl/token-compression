@@ -1,0 +1,14 @@
+[
+  {
+    "original": "The database connection pool manages all database connections. \n            When a service needs a database connection, it requests one from \n            the database connection pool. The database connection pool returns \n            an available database connection. After the service is done with \n            the database connection, it returns the database connection to \n            the database connection pool for reuse.",
+    "compressed": "The database connection pool manages all‹b:K›s. \n            When a service needs a‹w:K›, it requests one ⑤‹1C:D›①‹2N:O›. ‹2r:T›returns‹2R:E›an availabl‹x:L›. After ①‹2z:8›is done ④‹2O:X›, it‹1t:9›‹2v:L›to‹2H:E›‹3W:P› for reuse.",
+    "compression_ratio": 1.87,
+    "token_reduction_pct": 54.7
+  },
+  {
+    "original": "The quick brown fox jumps over the lazy dog. The quick brown fox \n            jumps over the lazy dog again. And again, the quick brown fox \n            jumps over the lazy dog. The lazy dog never moves because the \n            lazy dog is lazy.",
+    "compressed": "The quick brown fox jumps over ①lazy dog. ‹g:K›\n           ‹t:L› again. And again, ①‹17:n›. The ‹1L:9›never moves Ⓙ①‹10:D›‹a:9›is lazy.",
+    "compression_ratio": 1.81,
+    "token_reduction_pct": 53.7
+  }
+]
