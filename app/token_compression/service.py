@@ -1,10 +1,10 @@
-import logging
 from typing import Optional, Dict
 from app.token_compression.config import CompressionConfig
 from app.token_compression.compressor import Compressor
 from app.token_compression.decompressor import Decompressor
+from app.shared.logger import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 class CompressionService:
@@ -32,7 +32,6 @@ class CompressionService:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(name)s - %(message)s")
 
     def main():
         tests = [

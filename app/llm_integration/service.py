@@ -1,10 +1,10 @@
-import logging
 from typing import Optional
 from app.llm_integration.model import CompressedLLM
 from app.token_compression.service import CompressionService
 from app.token_compression.config import CompressionConfig
+from app.shared.logger import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 class LLMService:
@@ -34,7 +34,6 @@ class LLMService:
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format="%(name)s - %(message)s")
 
     def main():
         logger.info("Initializing LLM integration...")

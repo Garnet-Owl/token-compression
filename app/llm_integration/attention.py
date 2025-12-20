@@ -1,4 +1,3 @@
-import logging
 import torch
 from typing import Optional, Callable, Set
 from transformers.models.qwen2.modeling_qwen2 import (
@@ -10,8 +9,9 @@ from transformers.cache_utils import Cache
 from transformers.modeling_flash_attention_utils import FlashAttentionKwargs
 from transformers.modeling_utils import ALL_ATTENTION_FUNCTIONS
 from transformers.processing_utils import Unpack
+from app.shared.logger import get_logger
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 class DecompressionAwareAttention(Qwen2Attention):
