@@ -1,3 +1,4 @@
+import logging
 import torch
 from typing import Optional, Callable, Set
 from transformers.models.qwen2.modeling_qwen2 import (
@@ -9,6 +10,8 @@ from transformers.cache_utils import Cache
 from transformers.modeling_flash_attention_utils import FlashAttentionKwargs
 from transformers.modeling_utils import ALL_ATTENTION_FUNCTIONS
 from transformers.processing_utils import Unpack
+
+logger = logging.getLogger(__name__)
 
 
 class DecompressionAwareAttention(Qwen2Attention):
@@ -102,12 +105,13 @@ class DecompressionAwareAttention(Qwen2Attention):
             if pos < last_token_weights.shape[0]:
                 weight = last_token_weights[pos].item()
                 if weight > 0.01:
-                    print(
-                        f"[Layer {self.layer_idx}] Attention to ref @ pos {pos}: {weight:.4f}"
+                    logger.debug(
+                        f"Layer {self.layer_idx}: Attention to ref @ pos {pos}: {weight:.4f}"
                     )
 
 
 def replace_attention_layers(model, reference_token_ids: Set[int]):
+    replaced_count = 0
     for layer_idx, layer in enumerate(model.model.layers):
         old_attn = layer.self_attn
         new_attn = DecompressionAwareAttention(
@@ -120,5 +124,8 @@ def replace_attention_layers(model, reference_token_ids: Set[int]):
         new_attn.v_proj = old_attn.v_proj
         new_attn.o_proj = old_attn.o_proj
         layer.self_attn = new_attn
+        replaced_count += 1
 
+    logger.info(f"Replaced {replaced_count} attention layers")
+    logger.info(f"Tracking {len(reference_token_ids)} reference token IDs")
     return model

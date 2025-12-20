@@ -6,5 +6,6 @@
 - Subclasses `Qwen2Attention` to intercept attention and detect reference tokens
 - Added `replace_attention_layers()` helper to swap attention in all model layers
 - Updated `CompressedLLM` in `model.py` to integrate custom attention
-- Added `_build_reference_token_ids()` and `_setup_custom_attention()` methods
-- Verified: Model loads, compresses, tokenizes (① = token 151667), generates output
+- Verified: 24 attention layers replaced, 12 reference token IDs tracked
+- Replaced all print statements with logging throughout codebase
+- Deleted standalone `verify_llm.py` (verification in service.py main blocks)

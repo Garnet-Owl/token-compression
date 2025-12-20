@@ -1,13 +1,14 @@
-from typing import List, Optional
+import logging
+from typing import Optional
 from app.llm_integration.model import CompressedLLM
 from app.token_compression.service import CompressionService
 from app.token_compression.config import CompressionConfig
 
+logger = logging.getLogger(__name__)
+
 
 class LLMService:
-    """
-    Service for interacting with the compressed LLM.
-    """
+    """Service for interacting with the compressed LLM."""
 
     def __init__(self, config: Optional[CompressionConfig] = None):
         self.config = config or CompressionConfig()
@@ -15,12 +16,10 @@ class LLMService:
         self.compressor_service = CompressionService(config=self.config)
 
     def generate_from_compressed(self, text: str) -> str:
-        """Compress text and then generate from it."""
         compressed = self.compressor_service.compress(text)
         return self.llm.generate(compressed)
 
     def analyze_tokenization(self, text: str) -> dict:
-        """Analyze how the text is compressed and tokenized."""
         compressed = self.compressor_service.compress(text)
         token_ids = self.llm.get_token_ids(compressed)
         decoded = self.llm.tokenizer.decode(token_ids)
@@ -35,24 +34,25 @@ class LLMService:
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(name)s - %(message)s")
 
     def main():
-        print("Initializing LLM integration...")
+        logger.info("Initializing LLM integration...")
         service = LLMService()
 
         test_text = "The quick brown fox jumps over the lazy dog."
-        print(f"\nAnalyzing: {test_text}")
+        logger.info(f"Analyzing: {test_text}")
 
         analysis = service.analyze_tokenization(test_text)
-        print(f"Compressed: {analysis['compressed']}")
-        print(f"Token Count: {analysis['token_count']}")
-        print(f"Token IDs: {analysis['token_ids']}")
+        logger.info(f"Compressed: {analysis['compressed']}")
+        logger.info(f"Token Count: {analysis['token_count']}")
+        logger.info(f"Token IDs: {analysis['token_ids']}")
 
-        print("\nAttempting generation...")
+        logger.info("Attempting generation...")
         try:
             output = service.generate_from_compressed(test_text)
-            print(f"Output: {output}")
+            logger.info(f"Output: {output}")
         except Exception as e:
-            print(f"Generation failed: {e}")
+            logger.error(f"Generation failed: {e}")
 
     main()

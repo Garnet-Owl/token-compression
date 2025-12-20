@@ -1,13 +1,14 @@
+import logging
 from typing import Optional, Dict
 from app.token_compression.config import CompressionConfig
 from app.token_compression.compressor import Compressor
 from app.token_compression.decompressor import Decompressor
 
+logger = logging.getLogger(__name__)
+
 
 class CompressionService:
-    """
-    Facade for compression and decompression services.
-    """
+    """Facade for compression and decompression services."""
 
     def __init__(self, config: Optional[CompressionConfig] = None):
         self.config = config or CompressionConfig()
@@ -15,30 +16,25 @@ class CompressionService:
         self.decompressor = Decompressor()
 
     def compress(self, text: str) -> str:
-        """Compress text."""
         return self.compressor.compress(text)
 
     def decompress(self, compressed_text: str) -> str:
-        """Decompress text."""
         return self.decompressor.decompress(compressed_text)
 
     def get_stats(self) -> Dict:
-        """Get latest compression stats."""
         return self.compressor.get_stats()
 
     @staticmethod
     def verify_roundtrip(original: str, decompressed: str) -> bool:
-        """Verify lossless roundtrip."""
-        # Normalize for comparison
         orig_norm = " ".join(original.split())
         decomp_norm = " ".join(decompressed.split())
         return orig_norm == decomp_norm
 
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format="%(name)s - %(message)s")
 
     def main():
-        """Demonstrate the compression system."""
         tests = [
             (
                 "Highly Repetitive",
@@ -73,19 +69,17 @@ if __name__ == "__main__":
             ),
         ]
 
-        # Use local instance
         service = CompressionService()
 
-        print("=" * 70)
-        print("LLM Text Compression System - Service Demo")
-        print("=" * 70)
+        logger.info("=" * 70)
+        logger.info("LLM Text Compression System - Service Demo")
+        logger.info("=" * 70)
 
         all_passed = True
 
         for name, text in tests:
-            print(f"\n{'─' * 70}")
-            print(f"Test: {name}")
-            print("─" * 70)
+            logger.info(f"{'─' * 70}")
+            logger.info(f"Test: {name}")
 
             compressed = service.compress(text)
             decompressed = service.decompress(compressed)
@@ -93,26 +87,22 @@ if __name__ == "__main__":
             passed = service.verify_roundtrip(text, decompressed)
             all_passed &= passed
 
-            print(
-                f"\nOriginal ({stats['original_chars']} chars, ~{stats['original_tokens']} tokens):"
+            logger.info(
+                f"Original: {stats['original_chars']} chars, ~{stats['original_tokens']} tokens"
             )
-            print(text.strip()[:100] + "...")
-
-            print(
-                f"\nCompressed ({stats['compressed_chars']} chars, ~{stats['compressed_tokens']} tokens):"
+            logger.info(
+                f"Compressed: {stats['compressed_chars']} chars, ~{stats['compressed_tokens']} tokens"
             )
-            print(compressed[:100] + "...")
+            logger.info(
+                f"Ratio: {stats['compression_ratio']}x, Saved: {stats['space_saved_pct']}%"
+            )
+            logger.info(f"Token reduction: {stats['token_reduction_pct']}%")
+            logger.info(
+                f"Dict subs: {stats['dict_subs']}, LZ77 refs: {stats['lz77_refs']}"
+            )
+            logger.info(f"Roundtrip: {'✓ PASS' if passed else '✗ FAIL'}")
 
-            print(f"\nResults:")
-            print(f"  • Compression ratio: {stats['compression_ratio']}x")
-            print(f"  • Space saved: {stats['space_saved_pct']}%")
-            print(f"  • Token reduction: {stats['token_reduction_pct']}%")
-            print(f"  • Dictionary substitutions: {stats['dict_subs']}")
-            print(f"  • LZ77 references: {stats['lz77_refs']}")
-            print(f"  • Roundtrip verified: {'✓ PASS' if passed else '✗ FAIL'}")
-
-        print(f"\n{'=' * 70}")
-        print(f"All tests passed: {'✓ YES' if all_passed else '✗ NO'}")
-        print("=" * 70)
+        logger.info("=" * 70)
+        logger.info(f"All tests passed: {'✓ YES' if all_passed else '✗ NO'}")
 
     main()
