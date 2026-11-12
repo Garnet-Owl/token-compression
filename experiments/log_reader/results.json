@@ -1,0 +1,53 @@
+{
+ "base model, original log": {
+  "answered": 150,
+  "accuracy": 0.333,
+  "by_question": {
+   "count": 0.294,
+   "lookup": 0.625,
+   "slowest": 0.098
+  },
+  "mean_prompt_tokens": 1459
+ },
+ "base model, compressed log + short legend": {
+  "answered": 150,
+  "accuracy": 0.16,
+  "by_question": {
+   "count": 0.196,
+   "lookup": 0.292,
+   "slowest": 0.0
+  },
+  "mean_prompt_tokens": 1147
+ },
+ "fine-tuned, original log": {
+  "answered": 150,
+  "accuracy": 0.767,
+  "by_question": {
+   "count": 0.412,
+   "lookup": 1.0,
+   "slowest": 0.902
+  },
+  "mean_prompt_tokens": 1459
+ },
+ "fine-tuned, compressed log (no legend)": {
+  "answered": 150,
+  "accuracy": 0.733,
+  "by_question": {
+   "count": 0.314,
+   "lookup": 1.0,
+   "slowest": 0.902
+  },
+  "mean_prompt_tokens": 1090
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3-1.7B",
+  "train_examples_seen": 1470,
+  "updates": 131,
+  "epochs": 1,
+  "train_seconds": 2587,
+  "gpu_seconds": 2623,
+  "final_loss": 0.237,
+  "peak_memory_gb": 6.8,
+  "smoke": false
+ }
+}

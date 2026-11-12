@@ -1,0 +1,600 @@
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "1", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76140059?", "gold": "201 753", "pred": "201 and 753", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20262856?", "gold": "500 465", "pred": "200 465", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "769", "pred": "447", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "49", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93261023?", "gold": "200 660", "pred": "200|116", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96438868?", "gold": "200 131", "pred": "200|131", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63751205?", "gold": "500 229", "pred": "200|18", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=94646791?", "gold": "200 427", "pred": "200; 427", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "816", "pred": "10372994 2", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=47699486?", "gold": "201 206", "pred": "201 and 206", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=67481388?", "gold": "200 863", "pred": "200|863", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98530142?", "gold": "201 78", "pred": "201 and 78", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=28157137?", "gold": "500 775", "pred": "201 and 499", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "866", "pred": "154", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98201190?", "gold": "201 759", "pred": "201 759", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "836", "pred": "836", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43520529?", "gold": "200 427", "pred": "200\n674", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "860", "pred": "184", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=84832772?", "gold": "200 69", "pred": "200 69", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "1", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "857", "pred": "857", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=79623871?", "gold": "200 499", "pred": "200 499", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "856", "pred": "1347", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96709349?", "gold": "500 109", "pred": "status=500 duration_ms=10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "715", "pred": "114", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78862540?", "gold": "201 614", "pred": "201 614", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "1", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "818", "pred": "1868", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "134", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "879", "pred": "1004", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "878", "pred": "1000", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "881", "pred": "183", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=44357897?", "gold": "200 527", "pred": "200 527", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43521795?", "gold": "200 94", "pred": "200|94", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78967264?", "gold": "500 166", "pred": "500 187", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=23062217?", "gold": "500 867", "pred": "500 867", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=70445983?", "gold": "500 359", "pred": "200 359", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "874", "pred": "181", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63210292?", "gold": "500 541", "pred": "200|800", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "862", "pred": "836", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "778", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "1012", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=18603039?", "gold": "404 87", "pred": "200 87", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=62001112?", "gold": "201 261", "pred": "201 and 261", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "792", "pred": "1000", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "872", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "890", "pred": "405", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78060609?", "gold": "500 366", "pred": "200|549", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "1", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "900", "pred": "153", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "806", "pred": "806", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "883", "pred": "113", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "834", "pred": "1000", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "821", "pred": "466", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "811", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=24176613?", "gold": "200 542", "pred": "200|542", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "889", "pred": "197", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=87332563?", "gold": "200 560", "pred": "200; 560", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "875", "pred": "1000", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "876", "pred": "866", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "811", "pred": "10672157 2", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=30435443?", "gold": "500 231", "pred": "200\n231", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "331", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "872", "pred": "153", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "894", "pred": "834", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "772", "pred": "114", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "888", "pred": "1826", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "893", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99080614?", "gold": "200 10", "pred": "200\n10", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "168", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=49780741?", "gold": "404 580", "pred": "404 580", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=16150862?", "gold": "201 106", "pred": "200 106", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=13097555?", "gold": "200 183", "pred": "200|183", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99146952?", "gold": "500 705", "pred": "500 705", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38439966?", "gold": "200 81", "pred": "200 81", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "831", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76120097?", "gold": "500 809", "pred": "500 809", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=41054463?", "gold": "404 824", "pred": "200\n824", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "135", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "869", "pred": "867", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "853", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=83682317?", "gold": "200 493", "pred": "200 493", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93187954?", "gold": "201 604", "pred": "201 604", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "859", "pred": "107", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=19014807?", "gold": "404 671", "pred": "201 671", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "775", "pred": "144", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=12142657?", "gold": "200 433", "pred": "200 433", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=34256646?", "gold": "200 866", "pred": "200\n677", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=21872734?", "gold": "500 316", "pred": "500 316", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=10822264?", "gold": "500 212", "pred": "500\n212", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=53605961?", "gold": "404 764", "pred": "200\n670", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "570", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "897", "pred": "147", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38443784?", "gold": "404 730", "pred": "200 458", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=73192242?", "gold": "201 672", "pred": "201 and 672", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "1", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "9", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "868", "pred": "102", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "882", "pred": "832", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "787", "pred": "1000", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "10", "correct": false}
+{"condition": "base model, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20369663?", "gold": "200 485", "pred": "200 485", "correct": true}
+{"condition": "base model, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "824", "correct": false}
+{"condition": "base model, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=56322294?", "gold": "500 411", "pred": "500 411", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76140059?", "gold": "201 753", "pred": "76140059|5", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20262856?", "gold": "500 465", "pred": "200|762", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "769", "pred": "133", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "163", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93261023?", "gold": "200 660", "pred": "200|660", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96438868?", "gold": "200 131", "pred": "96438868|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63751205?", "gold": "500 229", "pred": "63751205|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=94646791?", "gold": "200 427", "pred": "500|427", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "816", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=47699486?", "gold": "201 206", "pred": "201|532", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=67481388?", "gold": "200 863", "pred": "200|863", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98530142?", "gold": "201 78", "pred": "201|78", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=28157137?", "gold": "500 775", "pred": "500|775", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "866", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98201190?", "gold": "201 759", "pred": "201|759", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "836", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43520529?", "gold": "200 427", "pred": "200|427", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "860", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=84832772?", "gold": "200 69", "pred": "787", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "857", "pred": "108", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=79623871?", "gold": "200 499", "pred": "400|850", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "856", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96709349?", "gold": "500 109", "pred": "96709349|5", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "715", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78862540?", "gold": "201 614", "pred": "78862540|6", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "818", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "879", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "878", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "881", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=44357897?", "gold": "200 527", "pred": "200|527", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43521795?", "gold": "200 94", "pred": "200|94", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78967264?", "gold": "500 166", "pred": "200|166", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=23062217?", "gold": "500 867", "pred": "200|867", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=70445983?", "gold": "500 359", "pred": "700 84", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "874", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63210292?", "gold": "500 541", "pred": "63210292|5", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "1", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "862", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=18603039?", "gold": "404 87", "pred": "304|608", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=62001112?", "gold": "201 261", "pred": "201|452", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "792", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "195", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "890", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78060609?", "gold": "500 366", "pred": "500|26", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "900", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "806", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "883", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "834", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "1", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "821", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "150", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=24176613?", "gold": "200 542", "pred": "200|358", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "889", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=87332563?", "gold": "200 560", "pred": "200|560", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "875", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "876", "pred": "10:48:12|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "811", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=30435443?", "gold": "500 231", "pred": "641", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "872", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "894", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "772", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "888", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99080614?", "gold": "200 10", "pred": "99080614|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=49780741?", "gold": "404 580", "pred": "404|580", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=16150862?", "gold": "201 106", "pred": "200|252", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=13097555?", "gold": "200 183", "pred": "13097555|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99146952?", "gold": "500 705", "pred": "99146952|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38439966?", "gold": "200 81", "pred": "404|14", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76120097?", "gold": "500 809", "pred": "200|107", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=41054463?", "gold": "404 824", "pred": "200|46", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "869", "pred": "105", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "10:42:50|8", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=83682317?", "gold": "200 493", "pred": "200|493", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93187954?", "gold": "201 604", "pred": "200|604", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "859", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "2", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=19014807?", "gold": "404 671", "pred": "404|671", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "775", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=12142657?", "gold": "200 433", "pred": "200|817", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=34256646?", "gold": "200 866", "pred": "34256646|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=21872734?", "gold": "500 316", "pred": "200|316", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=10822264?", "gold": "500 212", "pred": "10822264|5", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=53605961?", "gold": "404 764", "pred": "53605961|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "897", "pred": "3|10:33:03", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38443784?", "gold": "404 730", "pred": "201|404|73", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=73192242?", "gold": "201 672", "pred": "73192242|2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "9", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "868", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "882", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "2", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "787", "pred": "To find the highest `duration_ms` among the", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20369663?", "gold": "200 485", "pred": "200|485", "correct": true}
+{"condition": "base model, compressed log + short legend", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "To find the highest duration_ms among the INFO request", "correct": false}
+{"condition": "base model, compressed log + short legend", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=56322294?", "gold": "500 411", "pred": "500|411", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "1", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76140059?", "gold": "201 753", "pred": "201 753", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "2", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20262856?", "gold": "500 465", "pred": "500 465", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "769", "pred": "769", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93261023?", "gold": "200 660", "pred": "200 660", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96438868?", "gold": "200 131", "pred": "200 131", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63751205?", "gold": "500 229", "pred": "500 229", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=94646791?", "gold": "200 427", "pred": "200 427", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "816", "pred": "816", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=47699486?", "gold": "201 206", "pred": "201 206", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "2", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=67481388?", "gold": "200 863", "pred": "200 863", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98530142?", "gold": "201 78", "pred": "201 78", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=28157137?", "gold": "500 775", "pred": "500 775", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "866", "pred": "866", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98201190?", "gold": "201 759", "pred": "201 759", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "836", "pred": "836", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43520529?", "gold": "200 427", "pred": "200 427", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "2", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "860", "pred": "860", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=84832772?", "gold": "200 69", "pred": "200 69", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "857", "pred": "857", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=79623871?", "gold": "200 499", "pred": "200 499", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "856", "pred": "856", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96709349?", "gold": "500 109", "pred": "500 109", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "715", "pred": "79", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78862540?", "gold": "201 614", "pred": "201 614", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "2", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "818", "pred": "818", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "879", "pred": "879", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "878", "pred": "878", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "881", "pred": "881", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "5", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=44357897?", "gold": "200 527", "pred": "200 527", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43521795?", "gold": "200 94", "pred": "200 94", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78967264?", "gold": "500 166", "pred": "500 166", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=23062217?", "gold": "500 867", "pred": "500 867", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=70445983?", "gold": "500 359", "pred": "500 359", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "874", "pred": "874", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63210292?", "gold": "500 541", "pred": "500 541", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "862", "pred": "862", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=18603039?", "gold": "404 87", "pred": "404 87", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "5", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=62001112?", "gold": "201 261", "pred": "201 261", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "792", "pred": "792", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "893", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "890", "pred": "890", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78060609?", "gold": "500 366", "pred": "500 366", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "900", "pred": "888", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "806", "pred": "86", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "883", "pred": "883", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "834", "pred": "834", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "821", "pred": "821", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "2", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "823", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=24176613?", "gold": "200 542", "pred": "200 542", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "889", "pred": "889", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=87332563?", "gold": "200 560", "pred": "200 560", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "875", "pred": "875", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "876", "pred": "876", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "811", "pred": "86", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=30435443?", "gold": "500 231", "pred": "500 231", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "846", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "872", "pred": "872", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "894", "pred": "894", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "772", "pred": "772", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "888", "pred": "888", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "893", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99080614?", "gold": "200 10", "pred": "200 10", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=49780741?", "gold": "404 580", "pred": "404 580", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "2", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=16150862?", "gold": "201 106", "pred": "201 106", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=13097555?", "gold": "200 183", "pred": "200 183", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "1", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99146952?", "gold": "500 705", "pred": "500 705", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38439966?", "gold": "200 81", "pred": "200 81", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "846", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76120097?", "gold": "500 809", "pred": "500 809", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=41054463?", "gold": "404 824", "pred": "404 824", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "89", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "869", "pred": "869", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=83682317?", "gold": "200 493", "pred": "200 493", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93187954?", "gold": "201 604", "pred": "201 604", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "859", "pred": "859", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=19014807?", "gold": "404 671", "pred": "404 671", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "775", "pred": "775", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=12142657?", "gold": "200 433", "pred": "200 433", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=34256646?", "gold": "200 866", "pred": "200 866", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=21872734?", "gold": "500 316", "pred": "500 316", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=10822264?", "gold": "500 212", "pred": "500 212", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=53605961?", "gold": "404 764", "pred": "404 764", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "3", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "897", "pred": "897", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38443784?", "gold": "404 730", "pred": "404 730", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=73192242?", "gold": "201 672", "pred": "201 672", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "3", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "9", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "868", "pred": "868", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "882", "pred": "882", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "2", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "787", "pred": "787", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, original log", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20369663?", "gold": "200 485", "pred": "200 485", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, original log", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=56322294?", "gold": "500 411", "pred": "500 411", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76140059?", "gold": "201 753", "pred": "201 753", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20262856?", "gold": "500 465", "pred": "500 465", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "769", "pred": "769", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93261023?", "gold": "200 660", "pred": "200 660", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96438868?", "gold": "200 131", "pred": "200 131", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63751205?", "gold": "500 229", "pred": "500 229", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=94646791?", "gold": "200 427", "pred": "200 427", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "816", "pred": "816", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=47699486?", "gold": "201 206", "pred": "201 206", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=67481388?", "gold": "200 863", "pred": "200 863", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98530142?", "gold": "201 78", "pred": "201 78", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=28157137?", "gold": "500 775", "pred": "500 775", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "866", "pred": "866", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=98201190?", "gold": "201 759", "pred": "201 759", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "836", "pred": "836", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43520529?", "gold": "200 427", "pred": "200 427", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "860", "pred": "860", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=84832772?", "gold": "200 69", "pred": "200 69", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "857", "pred": "857", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=79623871?", "gold": "200 499", "pred": "200 499", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "856", "pred": "856", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=96709349?", "gold": "500 109", "pred": "500 109", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "715", "pred": "79", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78862540?", "gold": "201 614", "pred": "201 614", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "818", "pred": "818", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "879", "pred": "879", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "878", "pred": "878", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "881", "pred": "881", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=44357897?", "gold": "200 527", "pred": "200 527", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=43521795?", "gold": "200 94", "pred": "200 94", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78967264?", "gold": "500 166", "pred": "500 166", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=23062217?", "gold": "500 867", "pred": "500 867", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=70445983?", "gold": "500 359", "pred": "500 359", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "874", "pred": "874", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=63210292?", "gold": "500 541", "pred": "500 541", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "862", "pred": "862", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=18603039?", "gold": "404 87", "pred": "404 87", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=62001112?", "gold": "201 261", "pred": "201 261", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "792", "pred": "792", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "893", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "890", "pred": "890", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=78060609?", "gold": "500 366", "pred": "500 366", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "900", "pred": "96", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "806", "pred": "86", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "883", "pred": "883", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "834", "pred": "834", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "0", "pred": "0", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "821", "pred": "821", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "823", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=24176613?", "gold": "200 542", "pred": "200 542", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "889", "pred": "889", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=87332563?", "gold": "200 560", "pred": "200 560", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "875", "pred": "875", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "876", "pred": "876", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "811", "pred": "86", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=30435443?", "gold": "500 231", "pred": "500 231", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "846", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "872", "pred": "872", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "894", "pred": "894", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "772", "pred": "772", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "888", "pred": "888", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "893", "pred": "893", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99080614?", "gold": "200 10", "pred": "200 10", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=49780741?", "gold": "404 580", "pred": "404 580", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=16150862?", "gold": "201 106", "pred": "201 106", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=13097555?", "gold": "200 183", "pred": "200 183", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=99146952?", "gold": "500 705", "pred": "500 705", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38439966?", "gold": "200 81", "pred": "200 81", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "846", "pred": "846", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=76120097?", "gold": "500 809", "pred": "500 809", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=41054463?", "gold": "404 824", "pred": "404 824", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "823", "pred": "89", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "869", "pred": "869", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "8", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "891", "pred": "891", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "7", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=83682317?", "gold": "200 493", "pred": "200 493", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=93187954?", "gold": "201 604", "pred": "201 604", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "859", "pred": "859", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "2", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=19014807?", "gold": "404 671", "pred": "404 671", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "775", "pred": "775", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=12142657?", "gold": "200 433", "pred": "200 433", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=34256646?", "gold": "200 866", "pred": "200 866", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=21872734?", "gold": "500 316", "pred": "500 316", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "5", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=10822264?", "gold": "500 212", "pred": "500 212", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=53605961?", "gold": "404 764", "pred": "404 764", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "837", "pred": "837", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "897", "pred": "897", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "1", "pred": "1", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=38443784?", "gold": "404 730", "pred": "404 730", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=73192242?", "gold": "201 672", "pred": "201 672", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "9", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "868", "pred": "868", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "882", "pred": "882", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "3", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "787", "pred": "787", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "6", "pred": "4", "correct": false}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "count", "question": "How many ERROR lines are in the log?", "gold": "4", "pred": "4", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=20369663?", "gold": "200 485", "pred": "200 485", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "slowest", "question": "What is the highest duration_ms among the INFO request lines?", "gold": "865", "pred": "865", "correct": true}
+{"condition": "fine-tuned, compressed log (no legend)", "qtype": "lookup", "question": "What were the status code and duration_ms of request_id=56322294?", "gold": "500 411", "pred": "500 411", "correct": true}

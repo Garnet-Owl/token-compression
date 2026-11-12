@@ -23,9 +23,45 @@ I counted real LLM tokens with OpenAI's `tiktoken` (`cl100k_base` and `o200k_bas
 
 The logs and JSON are generated, not real traffic, so treat those two rows as a best case. Run `uv run python -m scripts.measure_tokens` to reproduce all four.
 
-## Can a model read it? (GPU tests)
+## A version a model can read
 
-I ran two short tests on Kaggle's free GPU. Scripts and raw results are in [`experiments/`](experiments/).
+The first compressor points back by character distance, and a model can't count characters. So I wrote a second one for logs and other repeated lines. Each line shape is written once as a template, and every line becomes a short row of values, like a table. It's lossless, and it's in `app/structured_compression/`.
+
+```
+@1 2026-11-12 {} INFO request_id={} method={} path={} status={} duration_ms={}
+@2 2026-11-12 {} ERROR upstream_timeout service={} after_ms={} request_id={}
+---
+1|10:22:09|16480894|GET|/api/v1/orders/299|200|845
+2|10:22:35|search|2953|93082061
+```
+
+It saves about 27% of tokens on a 30-line log, less than the first version, because random numbers and IDs can't be compressed. But a model can read it.
+
+I fine-tuned Qwen3-1.7B (LoRA, one free Kaggle GPU, 44 minutes) on 1,470 examples and tested it on 150 new logs. Each log has 30 lines of four kinds, with three kinds of question.
+
+| Model and log | Correct | Prompt tokens |
+| --- | --- | --- |
+| Base model, original log | 33% | 1,459 |
+| Base model, compressed log + short legend | 16% | 1,147 |
+| Fine-tuned, original log | 77% | 1,459 |
+| Fine-tuned, compressed log, no legend | **73%** | **1,090** |
+
+| Question | Fine-tuned, original | Fine-tuned, compressed |
+| --- | --- | --- |
+| Look up a request's status and duration | 100% | 100% |
+| Highest duration among requests | 90% | 90% |
+| Count the ERROR lines | 41% | 31% |
+
+- **The fine-tuned model reads the compressed log almost as well as the original,** 73% against 77%, with 25% fewer tokens in the prompt. With 150 questions, that 4-point gap is only about 5 questions, so it's within noise.
+- **Fine-tuning did the work.** The base model gets 33% on the original log and 16% on the compressed one, even with a legend.
+- **Counting is the weak spot.** Both versions overcount the ERROR lines, and the compressed one is worse (31%).
+- **Limits:** the logs are generated, from one seed, and real logs are messier. This is one run on one model.
+
+Setup, raw answers and scripts are in [`experiments/log_reader/`](experiments/log_reader/).
+
+## The first version, tested on a GPU
+
+I ran two short tests of the first version on Kaggle's free GPU. Scripts and raw results are in [`experiments/`](experiments/).
 
 ### Test 1: no training, legend in the prompt
 
@@ -89,11 +125,11 @@ The maths is written up in [Mathematical Spec.md](Mathematical%20Spec.md): the L
 
 ## What I'd test next
 
-- Train on the full 1,200 examples for more than one epoch, and save the model's raw answers on the logs to see what it actually outputs.
-- Swap the rare symbols (`①`, `‹45:19›`) for common words the tokenizer already knows, so the compressed text costs fewer tokens.
+- Real logs and JSON from a running service, not generated ones.
+- Fix the counting weakness, for example by adding a running count to the compressed rows.
+- Train for more than one pass, and on both GPUs.
+- A smaller model, to see how far down it still works on a CPU.
 - Comparison with LLMLingua-2.
-- Real logs, JSON and tool outputs instead of generated ones.
-- A bigger model, once it fits the free GPU.
 
 ## Try it
 
@@ -139,8 +175,10 @@ The fine-tuning notebook is `notebooks/token_compression_colab_finetune.ipynb`. 
 ```
 app/
   token_compression/   dictionary + LZ77 compressor and decompressor
+  structured_compression/   template compressor for logs, readable by a model
   fine_tuning/         LoRA training pipeline
   main_runner/         FastAPI server and Q&A service
+experiments/           GPU tests, one folder each
 scripts/
   measure_tokens.py    token counts before and after, with real tokenizers
 notebooks/             fine-tuning notebook
