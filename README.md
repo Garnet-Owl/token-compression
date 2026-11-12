@@ -6,7 +6,7 @@ Compress repetitive logs into templates and short rows, then ask an LLM question
   <img src="docs/token-compression-hero.png" alt="Many text tokens compressed into a smaller stream of symbols flowing into a language model" width="760">
 </p>
 
-[Results](#results) | [How it works](#how-it-works) | [Quick start](#quick-start) | [Limitations](#limitations)
+[Results](#results) | [How it works](#how-it-works) | [Quick start](#quick-start) | [Limitations](#limitations) | [Model on Hugging Face](https://huggingface.co/Garnet-Owl/token-compression-log-reader)
 
 This is research code. It tests whether prompt compression can reduce LLM token usage and API cost, and it reports where it works and where it doesn't.
 
@@ -92,6 +92,10 @@ Common phrases become single symbols (`①`, `②`), and repeated text becomes a
 - **Compute:** one pass on a single 16 GB T4 GPU, about 44 minutes. fp16, cosine learning-rate schedule.
 
 Scripts, the model's raw answers and the full results are in [`experiments/log_reader/`](experiments/log_reader/).
+
+## Fine-tuned model
+
+The LoRA adapter is on Hugging Face: **[Garnet-Owl/token-compression-log-reader](https://huggingface.co/Garnet-Owl/token-compression-log-reader)**. See the model card for a loading example.
 
 ## Quick start
 
