@@ -23,6 +23,23 @@ I counted real LLM tokens with OpenAI's `tiktoken` (`cl100k_base` and `o200k_bas
 
 The logs and JSON are generated, not real traffic, so treat those two rows as a best case. Run `uv run python -m scripts.measure_tokens` to reproduce all four.
 
+## Can a model read it without training? (GPU test)
+
+I ran a short test on a Kaggle GPU: Qwen2.5-1.5B-Instruct, no fine-tuning, with a legend in the prompt that explains the compressed format. Script and raw results are in `experiments/`.
+
+| Task | Context | Answer score | Context tokens |
+| --- | --- | --- | --- |
+| Server logs, 100 questions (synthetic) | Original | 90% | 2,509 |
+| | Compressed + legend | **4%** | 1,882 |
+| SQuAD, 200 questions (prose) | Original | 0.36 F1 | 114 |
+| | Stopwords removed | 0.34 F1 | 90 |
+| | Compressed + legend | 0.47 F1 | **750** |
+
+- **The model can't decode the format on its own.** On the logs it found the right answer 4% of the time, against 90% with the original text. Reading the compressed format needs fine-tuning, which is what this project was meant to do.
+- **The legend is expensive.** It adds about 640 tokens, so for a short paragraph the "compressed" prompt is 6x longer. Even on the logs, the saving drops from about 40% to 25% once the legend is counted.
+- **Don't trust the SQuAD jump.** All SQuAD scores are low because the small model answers in long sentences, and the compressed prompt changed how it answers. I read that as a formatting effect, not better understanding.
+- It was a single run of about 8 GPU minutes, so treat the numbers as a first look.
+
 ## How it works
 
 ```
@@ -44,14 +61,15 @@ The maths is written up in [Mathematical Spec.md](Mathematical%20Spec.md): the L
 ## Limits
 
 - The fine-tune used only 100 (original, compressed) pairs for 50 epochs. That's small, so it's probably overfitted, and I haven't tested it on held-out data.
-- I haven't measured answer quality after compression, so I can't claim the meaning is preserved.
+- Answer quality is only tested zero-shot (above). I haven't measured it with the fine-tuned model, so I can't claim the meaning is preserved.
 - I haven't compared it with existing prompt-compression methods such as LLMLingua.
 
 ## What I'd test next
 
 - Answer accuracy on real QA data (SQuAD, HotpotQA, LongBench) at different compression levels.
 - Comparison with LLMLingua-2 and plain stopword removal.
-- Whether a current model can read the compressed format with no fine-tuning, just a legend in the prompt, counting the legend's tokens too.
+- A stronger model, or a shorter legend, to see if zero-shot reading can work at all.
+- A cleaner QA prompt so the scores aren't dominated by answer length.
 - Real logs, JSON and tool outputs, where the best results are.
 - A bigger training set with a proper validation split.
 

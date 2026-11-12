@@ -1,0 +1,42 @@
+{
+ "squad/original": {
+  "answered": 200,
+  "score": 0.359,
+  "exact": 0.1,
+  "mean_context_tokens": 113.6
+ },
+ "squad/stopwords removed": {
+  "answered": 200,
+  "score": 0.344,
+  "exact": 0.085,
+  "mean_context_tokens": 90.2
+ },
+ "squad/compressed + legend": {
+  "answered": 200,
+  "score": 0.47,
+  "exact": 0.295,
+  "mean_context_tokens": 750.1
+ },
+ "logs/original": {
+  "answered": 100,
+  "score": 0.9,
+  "exact": 0.9,
+  "mean_context_tokens": 2508.6
+ },
+ "logs/stopwords removed": {
+  "answered": 100,
+  "score": 0.86,
+  "exact": 0.86,
+  "mean_context_tokens": 2508.6
+ },
+ "logs/compressed + legend": {
+  "answered": 100,
+  "score": 0.04,
+  "exact": 0.04,
+  "mean_context_tokens": 1881.8
+ },
+ "_meta": {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "gpu_seconds": 454
+ }
+}
