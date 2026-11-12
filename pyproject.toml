@@ -1,7 +1,7 @@
 [project]
 name = "token-compression"
 version = "0.1.0"
-description = "Add your description here"
+description = "Prompt compression experiment: dictionary and LZ77 compression for LLM prompts, with a LoRA-tuned decompressor"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -12,6 +12,7 @@ dependencies = [
     "peft>=0.18.0",
     "pydantic>=2.12.5",
     "torch>=2.9.1",
+    "tiktoken>=0.9.0",
     "transformers>=4.57.3",
     "trl>=0.26.2",
     "uvicorn>=0.38.0",

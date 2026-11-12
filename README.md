@@ -1,102 +1,85 @@
-# Token Compression for LLMs
+# Token Compression for LLMs: an experiment in prompt compression
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Can you cut down what you send to an LLM by compressing the text first, the way ZIP does?
 
-An LLM-optimized text compression system that reduces token usage by **30-50%** while maintaining semantic understanding. The fine-tuned model can process compressed prompts directly, saving API costs.
+I tried it. This repo combines a dictionary of common phrases with LZ77 back-references (the idea behind ZIP), then fine-tunes a small model with LoRA to read the compressed text. It started after I watched a video about ZIP compression and wondered if the same trick could save tokens and API cost.
 
-> [!NOTE]
-> This project is an experimental idea inspired by a video about ZIP compression. It explores the intersection of classical compression algorithms and LLM context window optimization.
+It's an experiment, and I'm keeping it public with the real results, including where it doesn't work.
 
-This project is **open source** and contributions are welcome! feel free to open issues or submit pull requests.
+## What I found
 
-## 🎯 Key Results
+I counted real LLM tokens with OpenAI's `tiktoken` (`cl100k_base` and `o200k_base`), before and after compression. A plus means fewer tokens, a minus means more.
 
-| Metric                | Value       |
-| --------------------- | ----------- |
-| Token Reduction       | 30-50%      |
-| Compression Ratio     | 1.2x - 2.5x |
-| Semantic Preservation | 100%        |
+| Text | cl100k | o200k |
+| --- | --- | --- |
+| Server logs (synthetic, repetitive) | +36% | +46% |
+| JSON records (synthetic, repetitive) | +48% | +56% |
+| Prose (this repo's maths spec) | -56% | -40% |
+| Python code (this repo) | -74% | -50% |
 
-## 🏗️ Architecture
+- **Repetitive data compresses well.** Logs and JSON with repeated keys and values need about a third to a half fewer tokens.
+- **Prose and code get worse.** Modern tokenizers already pack normal English and code well. My replacement symbols and back-references, like `①` and `‹45:19›`, can cost more tokens than the words they replace.
+- **My first numbers were misleading.** The old "30-50% token reduction" counted whitespace-separated words, not tokens from a real tokenizer. That's why it looked better than it is.
+
+The logs and JSON are generated, not real traffic, so treat those two rows as a best case. Run `uv run python -m scripts.measure_tokens` to reproduce all four.
+
+## How it works
 
 ```
-Input Text → Dictionary Compression → LZ77 Back-References → Compressed Tokens
-                                                                    ↓
-                                                          Fine-tuned LLM
-                                                      (understands compressed format)
-                                                                    ↓
-                                                              Response
+Input text -> dictionary substitution -> LZ77 back-references -> compressed text
+                                                                      |
+                                                          fine-tuned LLM reads it
+                                                                      |
+                                                                  answer
 ```
 
-**Compression transforms:**
+1. **Dictionary.** Common phrases such as "the " and "and " become single symbols (`①`, `②`).
+2. **LZ77.** Text that repeats an earlier part becomes a reference, `‹distance:length›`.
+3. **Fine-tuned model.** Qwen2.5-0.5B with LoRA adapters (about 0.4% of the weights trained) learns to read the compressed format.
 
-- `"the quick brown fox"` → `"①quick brown fox"` (dictionary)
-- `"database connection pool ... database connection"` → `"database connection pool ... ‹45:19›"` (LZ77)
+Example: `"database connection pool ... database connection"` becomes `"database connection pool ... ‹45:19›"`.
 
-## 📦 Installation
+The maths is written up in [Mathematical Spec.md](Mathematical%20Spec.md): the LZ77 matching, a compression-aware attention idea, and a lazy decompression argument.
 
-- [uv](https://github.com/astral-sh/uv) package manager
+## Limits
 
-### Environment Setup
+- The fine-tune used only 100 (original, compressed) pairs for 50 epochs. That's small, so it's probably overfitted, and I haven't tested it on held-out data.
+- I haven't measured answer quality after compression, so I can't claim the meaning is preserved.
+- I haven't compared it with existing prompt-compression methods such as LLMLingua.
 
-1. **Install uv** (if not already installed)
+## What I'd test next
 
-   ```bash
-   pip install uv
-   ```
+- Answer accuracy on real QA data (SQuAD, HotpotQA, LongBench) at different compression levels.
+- Comparison with LLMLingua-2 and plain stopword removal.
+- Whether a current model can read the compressed format with no fine-tuning, just a legend in the prompt, counting the legend's tokens too.
+- Real logs, JSON and tool outputs, where the best results are.
+- A bigger training set with a proper validation split.
 
-2. **Create a virtual environment with Python 3.12**
+## Try it
 
-   ```bash
-   uv venv --python=python3.12
-   ```
-
-3. **Activate the virtual environment**
-
-   Windows:
-
-   ```bash
-   .venv\Scripts\activate
-   ```
-
-   Linux/macOS:
-
-   ```bash
-   source .venv/bin/activate
-   ```
-
-   ```
-
-   ```
-
-4. **Install dependencies with uv**
-   ```bash
-   uv sync
-   ```
-5. **Install the pre-commit hooks**
-   ```bash
-   pre-commit install
-   ```
-
-## 🚀 Quick Start
-
-### Start the API Server
+You need Python 3.11 or later and [uv](https://github.com/astral-sh/uv).
 
 ```bash
-python -m app.main_runner.api
+git clone https://github.com/Garnet-Owl/token-compression.git
+cd token-compression
+uv sync
 ```
 
-### Make a Request
+Start the API:
 
 ```bash
-# PowerShell
-Invoke-RestMethod -Uri "http://localhost:8000/ask" -Method POST -ContentType "application/json" -Body '{"context": "Your long context here...", "question": "Your question?"}'
-
-# Or open http://localhost:8000/docs for interactive Swagger UI
+uv run python -m app.main_runner.api
 ```
 
-### Python Usage
+Then open http://localhost:8000/docs, or send a request:
+
+```bash
+curl -X POST http://localhost:8000/ask \
+  -H "Content-Type: application/json" \
+  -d '{"context": "The database connection pool manages all connections...", "question": "What does the pool manage?"}'
+```
+
+Or from Python:
 
 ```python
 from app.main_runner.qa_service import QAService
@@ -104,81 +87,33 @@ from app.main_runner.qa_service import QAService
 service = QAService()
 result = service.ask(
     context="The database connection pool manages all connections...",
-    question="What does the pool manage?"
+    question="What does the pool manage?",
 )
 print(result["answer"])
-print(f"Saved {result['token_reduction_pct']}% tokens")
 ```
 
-## 📁 Project Structure
+The fine-tuning notebook is `notebooks/token_compression_colab_finetune.ipynb`. I trained on a Colab GPU.
+
+## Project layout
 
 ```
-token-compression/
-├── app/
-│   ├── token_compression/     # Core compression (LZ77 + dictionary)
-│   │   ├── compressor.py
-│   │   ├── decompressor.py
-│   │   └── service.py
-│   ├── fine_tuning/           # LoRA training pipeline
-│   │   ├── trainer.py
-│   │   └── dataset.py
-│   └── main_runner/           # API & inference
-│       ├── api.py             # FastAPI server
-│       ├── qa_service.py      # Q&A with compression
-│       └── config.py
-├── models/
-│   └── lora_adapter/          # Fine-tuned LoRA weights
-├── notebooks/
-│   └── kaggle_finetune.ipynb  # Training notebook (Kaggle GPU)
-└── data/
-    └── training_pairs.json    # Training data
+app/
+  token_compression/   dictionary + LZ77 compressor and decompressor
+  fine_tuning/         LoRA training pipeline
+  main_runner/         FastAPI server and Q&A service
+scripts/
+  measure_tokens.py    token counts before and after, with real tokenizers
+notebooks/             fine-tuning notebook
 ```
 
-## 📐 Mathematical Specification
+## Contributing
 
-For the formal mathematical foundation including:
+Issues and pull requests are welcome, especially new experiments or better baselines.
 
-- LZ77 matching functions
-- Compression-aware attention mechanism
-- Lazy decompression theorem
-- Token reduction analysis
+## Author
 
-See: **[Mathematical Spec.md](Mathematical%20Spec.md)**
+I'm James Wanjiku, an AI/ML engineer in Nairobi. [LinkedIn](https://www.linkedin.com/in/james-wanjiku/) | [Portfolio](https://garnet-owl.github.io/)
 
-## 🔧 How It Works
+## License
 
-1. **Dictionary Compression**: Common phrases (`"the "`, `"and "`, etc.) → single tokens (`①`, `②`)
-2. **LZ77 Back-References**: Repeated text → `‹distance:length›` format
-3. **Fine-tuned LLM**: Qwen2.5-0.5B trained to understand compressed format
-4. **LoRA Adapters**: Efficient fine-tuning with 0.4% trainable parameters
-
-## 🏋️ Training
-
-Training was done on Colab with GPU. See `notebooks/token_compression_colab_finetune.ipynb`.
-
-```python
-# Training config
-LoRA: r=16, alpha=32, target=["q_proj", "k_proj", "v_proj", "o_proj"]
-Epochs: 50
-Batch size: 8
-Data: 100 (original, compressed) pairs
-```
-
-## 📊 API Endpoints
-
-| Endpoint  | Method | Description                                                   |
-| --------- | ------ | ------------------------------------------------------------- |
-| `/ask`    | POST   | Send `{context, question}`, get `{answer, compression_ratio}` |
-| `/health` | GET    | Check model status                                            |
-| `/docs`   | GET    | Interactive Swagger UI                                        |
-
-## 👤 Author
-
-**James Wanjiku**
-AI Researcher @ [AAI-Labs](https://www.aai-labs.com/en/cases)
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/james-wanjiku/)
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details.
+MIT. See [LICENSE](LICENSE).
