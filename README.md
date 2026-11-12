@@ -1,48 +1,25 @@
-# Token Compression for LLMs: an experiment in prompt compression
+# Token Compression for LLMs: compress logs to cut prompt tokens
 
-Can you cut down what you send to an LLM by compressing the text first, the way ZIP does?
+Compress repetitive logs into templates and short rows, then ask an LLM questions about them. A fine-tuned Qwen3-1.7B answers **73%** of test questions correctly on the compressed log, against **77%** on the original, with **25% fewer prompt tokens**.
 
-I tried it. This repo combines a dictionary of common phrases with LZ77 back-references (the idea behind ZIP), then fine-tunes a small model with LoRA to read the compressed text. It started after I watched a video about ZIP compression and wondered if the same trick could save tokens and API cost.
+[Results](#results) | [How it works](#how-it-works) | [Quick start](#quick-start) | [Limitations](#limitations)
 
-It's an experiment, and I'm keeping it public with the real results, including where it doesn't work.
+This is research code. It tests whether prompt compression can reduce LLM token usage and API cost, and it reports where it works and where it doesn't.
 
-## What I found
+## Why compress prompts
 
-I counted real LLM tokens with OpenAI's `tiktoken` (`cl100k_base` and `o200k_base`), before and after compression. A plus means fewer tokens, a minus means more.
+Prompts that carry logs, JSON or tool output are long and repetitive, and you pay for every token. Compression only helps if the model can still answer from the compressed text. So each method here is measured two ways: tokens counted with real tokenizers (`tiktoken`), and answer accuracy on held-out questions.
 
-| Text | cl100k | o200k |
-| --- | --- | --- |
-| Server logs (synthetic, repetitive) | +36% | +46% |
-| JSON records (synthetic, repetitive) | +48% | +56% |
-| Prose (this repo's maths spec) | -56% | -40% |
-| Python code (this repo) | -74% | -50% |
+## Results
 
-- **Repetitive data compresses well.** Logs and JSON with repeated keys and values need about a third to a half fewer tokens.
-- **Prose and code get worse.** Modern tokenizers already pack normal English and code well. My replacement symbols and back-references, like `①` and `‹45:19›`, can cost more tokens than the words they replace.
-- **My first numbers were misleading.** The old "30-50% token reduction" counted whitespace-separated words, not tokens from a real tokenizer. That's why it looked better than it is.
+### Template compression with a fine-tuned reader
 
-The logs and JSON are generated, not real traffic, so treat those two rows as a best case. Run `uv run python -m scripts.measure_tokens` to reproduce all four.
-
-## A version a model can read
-
-The first compressor points back by character distance, and a model can't count characters. So I wrote a second one for logs and other repeated lines. Each line shape is written once as a template, and every line becomes a short row of values, like a table. It's lossless, and it's in `app/structured_compression/`.
-
-```
-@1 2026-11-12 {} INFO request_id={} method={} path={} status={} duration_ms={}
-@2 2026-11-12 {} ERROR upstream_timeout service={} after_ms={} request_id={}
----
-1|10:22:09|16480894|GET|/api/v1/orders/299|200|845
-2|10:22:35|search|2953|93082061
-```
-
-It saves about 27% of tokens on a 30-line log, less than the first version, because random numbers and IDs can't be compressed. But a model can read it.
-
-I fine-tuned Qwen3-1.7B (LoRA, one free Kaggle GPU, 44 minutes) on 1,470 examples and tested it on 150 new logs. Each log has 30 lines of four kinds, with three kinds of question.
+The best result comes from a template compressor for logs plus a small fine-tuned model. Test set: 150 new 30-line logs, with three kinds of question.
 
 | Model and log | Correct | Prompt tokens |
 | --- | --- | --- |
-| Base model, original log | 33% | 1,459 |
-| Base model, compressed log + short legend | 16% | 1,147 |
+| Base Qwen3-1.7B, original log | 33% | 1,459 |
+| Base Qwen3-1.7B, compressed log with a short legend | 16% | 1,147 |
 | Fine-tuned, original log | 77% | 1,459 |
 | Fine-tuned, compressed log, no legend | **73%** | **1,090** |
 
@@ -52,86 +29,67 @@ I fine-tuned Qwen3-1.7B (LoRA, one free Kaggle GPU, 44 minutes) on 1,470 example
 | Highest duration among requests | 90% | 90% |
 | Count the ERROR lines | 41% | 31% |
 
-- **The fine-tuned model reads the compressed log almost as well as the original,** 73% against 77%, with 25% fewer tokens in the prompt. With 150 questions, that 4-point gap is only about 5 questions, so it's within noise.
-- **Fine-tuning did the work.** The base model gets 33% on the original log and 16% on the compressed one, even with a legend.
-- **Counting is the weak spot.** Both versions overcount the ERROR lines, and the compressed one is worse (31%).
-- **Limits:** the logs are generated, from one seed, and real logs are messier. This is one run on one model.
+- The fine-tuned model reads the compressed log almost as well as the original. With 150 questions, the 4-point gap is about 5 questions, so it's within noise.
+- Fine-tuning is what makes the format readable. Without it, the base model scores 16%, even with a legend.
+- Counting is the weak spot. Both versions overcount ERROR lines, and the compressed one does worse.
 
-Setup, raw answers and scripts are in [`experiments/log_reader/`](experiments/log_reader/).
+### What doesn't work: dictionary + LZ77
 
-## The first version, tested on a GPU
+The first compressor combines a phrase dictionary with LZ77 back-references (the idea behind ZIP). Token counts before and after, using `tiktoken` (a plus means fewer tokens, a minus means more):
 
-I ran two short tests of the first version on Kaggle's free GPU. Scripts and raw results are in [`experiments/`](experiments/).
+| Text | `cl100k_base` | `o200k_base` |
+| --- | --- | --- |
+| Server logs (synthetic) | +36% | +46% |
+| JSON records (synthetic) | +48% | +56% |
+| Prose (this repo's maths spec) | -56% | -40% |
+| Python code (this repo) | -74% | -50% |
 
-### Test 1: no training, legend in the prompt
+It shrinks repetitive data but makes prose and code longer in tokens, because symbols like `①` and `‹45:19›` cost more tokens than the words they replace. Counting whitespace-separated words overstates the saving, so these tables use real tokenizers.
 
-Qwen3.5-4B, a short-answer prompt, and a legend that explains the compressed format.
+It's also unreadable without training. Qwen3.5-4B, given a legend that explains the format:
 
-| Task | Context | Answer score | Context tokens |
+| Task | Context | Score | Context tokens |
 | --- | --- | --- | --- |
-| Server logs, 100 questions (synthetic) | Original | 96% | 2,509 |
-| | Stopwords removed | 93% | 2,509 |
+| Server logs, 100 questions | Original | 96% | 2,509 |
 | | Compressed + legend | **4%** | 1,883 |
-| SQuAD, 200 questions (prose) | Original | 0.94 F1 | 113 |
+| SQuAD, 200 questions | Original | 0.94 F1 | 113 |
 | | Stopwords removed | 0.93 F1 | 90 |
 | | Compressed + legend | 0.85 F1 | **752** |
 
-- **Even a current model can't decode the format on its own.** On the logs it was right 4% of the time, against 96% with the original text.
-- **The legend is expensive.** It adds about 640 tokens, so a short paragraph becomes 6.7x longer.
-- **For prose, plain stopword removal is the better deal:** 21% fewer tokens for a 0.01 drop in F1.
+The legend adds about 640 tokens, so short prompts get longer. For prose, plain stopword removal is the better trade: 21% fewer tokens for a 0.01 drop in F1.
 
-An earlier run with an older model and a looser prompt is also in `experiments/`. Its SQuAD scores were mostly noise from answer length, which is why I reran it.
-
-### Test 2: fine-tune a small model to read it (no legend)
-
-Qwen3-1.7B with LoRA, trained on compressed contexts so it doesn't need the legend. Qwen3.5-2B ran out of memory on the free GPU, so I used Qwen3-1.7B. Training hit my 11-minute cap after 477 examples (I had planned 1,200).
-
-| Task | Model and context | Answer score | Context tokens |
-| --- | --- | --- | --- |
-| Server logs | Base model, original text | 42% | 2,509 |
-| | Fine-tuned, compressed text | **4%** | 1,292 |
-| SQuAD | Base model, original text | 0.81 F1 | 114 |
-| | Fine-tuned, compressed text | 0.83 F1 | **160** |
-
-- **No legend means the logs shrink by about 49%,** but after 477 examples the model still can't read them (4%). That's too little training to say it can't be learned. It's a first look, not a verdict.
-- **On prose, compression costs tokens.** The compressed text is 41% longer in tokens than the original.
-- **The SQuAD score held up (0.83 against 0.81),** but that shows the model can answer from text. It doesn't show it understands the symbols.
-
-Each test is a single run, about 18 and 16 GPU minutes.
+Why it fails: the back-references point by character distance, and a model can't count characters. That's why the log compressor below uses a different design.
 
 ## How it works
 
+### Template compression for logs
+
+Each line shape is written once as a template, and every line becomes a short row of values, like a table. It's lossless: decompressing gives back the exact original text. It saves about 27% of tokens on a 30-line log, and about 32% on 60 lines. The ceiling is set by random numbers and IDs, which can't be compressed.
+
 ```
-Input text -> dictionary substitution -> LZ77 back-references -> compressed text
-                                                                      |
-                                                          fine-tuned LLM reads it
-                                                                      |
-                                                                  answer
+@1 2026-11-12 {} INFO request_id={} method={} path={} status={} duration_ms={}
+@2 2026-11-12 {} ERROR upstream_timeout service={} after_ms={} request_id={}
+---
+1|10:22:09|16480894|GET|/api/v1/orders/299|200|845
+2|10:22:35|search|2953|93082061
 ```
 
-1. **Dictionary.** Common phrases such as "the " and "and " become single symbols (`①`, `②`).
-2. **LZ77.** Text that repeats an earlier part becomes a reference, `‹distance:length›`.
-3. **Fine-tuned model.** Qwen2.5-0.5B with LoRA adapters (about 0.4% of the weights trained) learns to read the compressed format.
+A value that is the same in every line of a template is written into the template. A line that doesn't fit is kept as raw text, marked with `!`. Code: [`app/structured_compression/`](app/structured_compression/compressor.py).
 
-Example: `"database connection pool ... database connection"` becomes `"database connection pool ... ‹45:19›"`.
+### Dictionary + LZ77
 
-The maths is written up in [Mathematical Spec.md](Mathematical%20Spec.md): the LZ77 matching, a compression-aware attention idea, and a lazy decompression argument.
+Common phrases become single symbols (`①`, `②`), and repeated text becomes a reference, `‹distance:length›`. For example, `"database connection pool ... database connection"` becomes `"database connection pool ... ‹45:19›"`. The maths is in [Mathematical Spec.md](Mathematical%20Spec.md). Code: [`app/token_compression/`](app/token_compression/).
 
-## Limits
+### The fine-tuned reader
 
-- The original notebook fine-tuned on only 100 pairs for 50 epochs, which is probably overfitted. My newer test used 477 pairs for one epoch and a held-out test set, which is better but still small.
-- Answer quality is tested on a small model with short training (above), so I can't claim the meaning is preserved.
-- I haven't compared it with existing prompt-compression methods such as LLMLingua.
+- **Model:** Qwen3-1.7B with LoRA adapters (rank 32, all linear layers), about 35M trainable parameters. It runs on a CPU for inference.
+- **Training data:** 1,470 examples, about 80% compressed logs without a legend and 20% original logs, so one model works on both. The loss is on answer tokens only.
+- **Efficiency:** examples are sorted by length and packed into batches with a fixed token budget, gradient checkpointing keeps memory near 7 GB, and the output layer runs only on answer positions.
+- **Compute:** one pass on a single 16 GB T4 GPU, about 44 minutes. fp16, cosine learning-rate schedule.
 
-## What I'd test next
+Scripts, the model's raw answers and the full results are in [`experiments/log_reader/`](experiments/log_reader/).
 
-- Real logs and JSON from a running service, not generated ones.
-- Fix the counting weakness, for example by adding a running count to the compressed rows.
-- Train for more than one pass, and on both GPUs.
-- A smaller model, to see how far down it still works on a CPU.
-- Comparison with LLMLingua-2.
-
-## Try it
+## Quick start
 
 You need Python 3.11 or later and [uv](https://github.com/astral-sh/uv).
 
@@ -141,13 +99,39 @@ cd token-compression
 uv sync
 ```
 
-Start the API:
+Compress a log and restore it:
+
+```python
+from app.structured_compression.compressor import StructuredCompressor
+
+compressor = StructuredCompressor()
+packed = compressor.compress(log_text)
+assert compressor.decompress(packed) == log_text
+```
+
+Count the tokens saved by the dictionary + LZ77 compressor (this reproduces the token table above):
+
+```bash
+uv run python -m scripts.measure_tokens
+```
+
+Run the tests:
+
+```bash
+uv run pytest
+```
+
+To rebuild the log test set and train your own reader, follow [`experiments/log_reader/README.md`](experiments/log_reader/README.md).
+
+### Question-answering API
+
+The repo also has the original pipeline: a FastAPI service that compresses a context with dictionary + LZ77 and asks a fine-tuned model a question about it.
 
 ```bash
 uv run python -m app.main_runner.api
 ```
 
-Then open http://localhost:8000/docs, or send a request:
+Open http://localhost:8000/docs, or send a request:
 
 ```bash
 curl -X POST http://localhost:8000/ask \
@@ -155,42 +139,45 @@ curl -X POST http://localhost:8000/ask \
   -d '{"context": "The database connection pool manages all connections...", "question": "What does the pool manage?"}'
 ```
 
-Or from Python:
+## Limitations
 
-```python
-from app.main_runner.qa_service import QAService
+- The logs are generated from one random seed. Real logs are messier, and results will differ.
+- The test set is 150 questions and each number is a single run, so differences of a few points aren't meaningful.
+- The reader was trained on this log format. Other formats need their own training.
+- Counting questions are weak.
+- The original dictionary + LZ77 pipeline was trained on a small set of 100 pairs and isn't evaluated on held-out data.
+- There's no comparison yet with other prompt-compression methods such as LLMLingua.
 
-service = QAService()
-result = service.ask(
-    context="The database connection pool manages all connections...",
-    question="What does the pool manage?",
-)
-print(result["answer"])
-```
+## Roadmap
 
-The fine-tuning notebook is `notebooks/token_compression_colab_finetune.ipynb`. I trained on a Colab GPU.
+- Test on real logs and JSON from a running service.
+- Improve counting, for example by adding a running count to the compressed rows.
+- Train for more than one pass.
+- Try a smaller model for CPU-only use.
+- Compare against LLMLingua-2.
 
 ## Project layout
 
 ```
 app/
-  token_compression/   dictionary + LZ77 compressor and decompressor
-  structured_compression/   template compressor for logs, readable by a model
-  fine_tuning/         LoRA training pipeline
-  main_runner/         FastAPI server and Q&A service
-experiments/           GPU tests, one folder each
-scripts/
-  measure_tokens.py    token counts before and after, with real tokenizers
-notebooks/             fine-tuning notebook
+  structured_compression/   template compressor for logs
+  token_compression/        dictionary + LZ77 compressor
+  fine_tuning/              LoRA training pipeline for the original pipeline
+  main_runner/              FastAPI server and question-answering service
+experiments/
+  log_reader/               fine-tuned reader for compressed logs (main result)
+  zero_shot_qa/             legend-only test of the dictionary + LZ77 format
+scripts/measure_tokens.py   token counts before and after, with real tokenizers
+tests/                      unit tests for the template compressor
 ```
 
 ## Contributing
 
-Issues and pull requests are welcome, especially new experiments or better baselines.
+Issues and pull requests are welcome, especially new experiments and baselines.
 
 ## Author
 
-I'm James Wanjiku, an AI/ML engineer in Nairobi. [LinkedIn](https://www.linkedin.com/in/james-wanjiku/) | [Portfolio](https://garnet-owl.github.io/)
+James Wanjiku, AI/ML engineer in Nairobi. [LinkedIn](https://www.linkedin.com/in/james-wanjiku/) | [Portfolio](https://garnet-owl.github.io/)
 
 ## License
 

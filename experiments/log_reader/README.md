@@ -1,6 +1,6 @@
 # Log reader: fine-tune a model to read template-compressed logs
 
-The first compressor (dictionary + LZ77) was unreadable to a model, so this version compresses repeated log lines into templates and short rows (see `app/structured_compression/`). The test asks whether a small model can still answer questions about the compressed log.
+Fine-tunes a small model to answer questions about logs compressed with the template compressor (`app/structured_compression/`), and compares it with the base model on the original and compressed logs.
 
 1. `python experiments/log_reader/make_data.py <folder> 3000 150` writes `train.jsonl` and `test.jsonl`. Every example is checked to decompress back to the exact original.
 2. Upload the folder as a Kaggle dataset and run `train.py` as a GPU kernel (one T4).

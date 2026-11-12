@@ -1,6 +1,6 @@
 """Fine-tune Qwen3-1.7B with LoRA to answer questions about template-compressed logs.
 
-Runs as a Kaggle GPU kernel (one T4, 16 GB). Set SMOKE=1 for a 3-minute check.
+Runs as a Kaggle GPU kernel on one T4 (16 GB). Set SMOKE to True for a short check.
 
 Design
 - Model: Qwen3-1.7B in fp16, LoRA (rank 32) on every linear layer, fp32 adapter weights.
