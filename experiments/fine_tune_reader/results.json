@@ -1,0 +1,32 @@
+{
+ "logs/base model, original text": {
+  "answered": 100,
+  "score": 0.42,
+  "exact": 0.42,
+  "mean_context_tokens": 2508.6
+ },
+ "logs/fine-tuned, compressed text (no legend)": {
+  "answered": 100,
+  "score": 0.04,
+  "exact": 0.04,
+  "mean_context_tokens": 1291.8
+ },
+ "squad/base model, original text": {
+  "answered": 200,
+  "score": 0.812,
+  "exact": 0.775,
+  "mean_context_tokens": 113.6
+ },
+ "squad/fine-tuned, compressed text (no legend)": {
+  "answered": 200,
+  "score": 0.83,
+  "exact": 0.785,
+  "mean_context_tokens": 160.1
+ },
+ "_meta": {
+  "model": "Qwen/Qwen3-1.7B",
+  "trained_examples": 477,
+  "gpu_seconds": 947,
+  "last_loss": 0.859
+ }
+}

@@ -23,22 +23,45 @@ I counted real LLM tokens with OpenAI's `tiktoken` (`cl100k_base` and `o200k_bas
 
 The logs and JSON are generated, not real traffic, so treat those two rows as a best case. Run `uv run python -m scripts.measure_tokens` to reproduce all four.
 
-## Can a model read it without training? (GPU test)
+## Can a model read it? (GPU tests)
 
-I ran a short test on a Kaggle GPU: Qwen2.5-1.5B-Instruct, no fine-tuning, with a legend in the prompt that explains the compressed format. Script and raw results are in `experiments/`.
+I ran two short tests on Kaggle's free GPU. Scripts and raw results are in [`experiments/`](experiments/).
+
+### Test 1: no training, legend in the prompt
+
+Qwen3.5-4B, a short-answer prompt, and a legend that explains the compressed format.
 
 | Task | Context | Answer score | Context tokens |
 | --- | --- | --- | --- |
-| Server logs, 100 questions (synthetic) | Original | 90% | 2,509 |
-| | Compressed + legend | **4%** | 1,882 |
-| SQuAD, 200 questions (prose) | Original | 0.36 F1 | 114 |
-| | Stopwords removed | 0.34 F1 | 90 |
-| | Compressed + legend | 0.47 F1 | **750** |
+| Server logs, 100 questions (synthetic) | Original | 96% | 2,509 |
+| | Stopwords removed | 93% | 2,509 |
+| | Compressed + legend | **4%** | 1,883 |
+| SQuAD, 200 questions (prose) | Original | 0.94 F1 | 113 |
+| | Stopwords removed | 0.93 F1 | 90 |
+| | Compressed + legend | 0.85 F1 | **752** |
 
-- **The model can't decode the format on its own.** On the logs it found the right answer 4% of the time, against 90% with the original text. Reading the compressed format needs fine-tuning, which is what this project was meant to do.
-- **The legend is expensive.** It adds about 640 tokens, so for a short paragraph the "compressed" prompt is 6x longer. Even on the logs, the saving drops from about 40% to 25% once the legend is counted.
-- **Don't trust the SQuAD jump.** All SQuAD scores are low because the small model answers in long sentences, and the compressed prompt changed how it answers. I read that as a formatting effect, not better understanding.
-- It was a single run of about 8 GPU minutes, so treat the numbers as a first look.
+- **Even a current model can't decode the format on its own.** On the logs it was right 4% of the time, against 96% with the original text.
+- **The legend is expensive.** It adds about 640 tokens, so a short paragraph becomes 6.7x longer.
+- **For prose, plain stopword removal is the better deal:** 21% fewer tokens for a 0.01 drop in F1.
+
+An earlier run with an older model and a looser prompt is also in `experiments/`. Its SQuAD scores were mostly noise from answer length, which is why I reran it.
+
+### Test 2: fine-tune a small model to read it (no legend)
+
+Qwen3-1.7B with LoRA, trained on compressed contexts so it doesn't need the legend. Qwen3.5-2B ran out of memory on the free GPU, so I used Qwen3-1.7B. Training hit my 11-minute cap after 477 examples (I had planned 1,200).
+
+| Task | Model and context | Answer score | Context tokens |
+| --- | --- | --- | --- |
+| Server logs | Base model, original text | 42% | 2,509 |
+| | Fine-tuned, compressed text | **4%** | 1,292 |
+| SQuAD | Base model, original text | 0.81 F1 | 114 |
+| | Fine-tuned, compressed text | 0.83 F1 | **160** |
+
+- **No legend means the logs shrink by about 49%,** but after 477 examples the model still can't read them (4%). That's too little training to say it can't be learned. It's a first look, not a verdict.
+- **On prose, compression costs tokens.** The compressed text is 41% longer in tokens than the original.
+- **The SQuAD score held up (0.83 against 0.81),** but that shows the model can answer from text. It doesn't show it understands the symbols.
+
+Each test is a single run, about 18 and 16 GPU minutes.
 
 ## How it works
 
@@ -60,18 +83,17 @@ The maths is written up in [Mathematical Spec.md](Mathematical%20Spec.md): the L
 
 ## Limits
 
-- The fine-tune used only 100 (original, compressed) pairs for 50 epochs. That's small, so it's probably overfitted, and I haven't tested it on held-out data.
-- Answer quality is only tested zero-shot (above). I haven't measured it with the fine-tuned model, so I can't claim the meaning is preserved.
+- The original notebook fine-tuned on only 100 pairs for 50 epochs, which is probably overfitted. My newer test used 477 pairs for one epoch and a held-out test set, which is better but still small.
+- Answer quality is tested on a small model with short training (above), so I can't claim the meaning is preserved.
 - I haven't compared it with existing prompt-compression methods such as LLMLingua.
 
 ## What I'd test next
 
-- Answer accuracy on real QA data (SQuAD, HotpotQA, LongBench) at different compression levels.
-- Comparison with LLMLingua-2 and plain stopword removal.
-- A stronger model, or a shorter legend, to see if zero-shot reading can work at all.
-- A cleaner QA prompt so the scores aren't dominated by answer length.
-- Real logs, JSON and tool outputs, where the best results are.
-- A bigger training set with a proper validation split.
+- Train on the full 1,200 examples for more than one epoch, and save the model's raw answers on the logs to see what it actually outputs.
+- Swap the rare symbols (`①`, `‹45:19›`) for common words the tokenizer already knows, so the compressed text costs fewer tokens.
+- Comparison with LLMLingua-2.
+- Real logs, JSON and tool outputs instead of generated ones.
+- A bigger model, once it fits the free GPU.
 
 ## Try it
 
