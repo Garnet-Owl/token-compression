@@ -40,3 +40,8 @@
 - Updated `app/training_data_generation/pair_generator.py` to support file-based processing
 - Generated `data/training_pairs.json` with 100 (original, compressed) training pairs
 - Verified compression performance: ratios typically between 1.1x and 2.5x
+
+## [2026-11-12] - README illustration
+
+- Added a high-resolution compression illustration in docs/token-compression-hero.png.
+- Placed it after the README introduction at a compact 760px display width.

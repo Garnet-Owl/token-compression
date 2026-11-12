@@ -2,6 +2,10 @@
 
 Compress repetitive logs into templates and short rows, then ask an LLM questions about them. A fine-tuned Qwen3-1.7B answers **73%** of test questions correctly on the compressed log, against **77%** on the original, with **25% fewer prompt tokens**.
 
+<p align="center">
+  <img src="docs/token-compression-hero.png" alt="Many text tokens compressed into a smaller stream of symbols flowing into a language model" width="760">
+</p>
+
 [Results](#results) | [How it works](#how-it-works) | [Quick start](#quick-start) | [Limitations](#limitations)
 
 This is research code. It tests whether prompt compression can reduce LLM token usage and API cost, and it reports where it works and where it doesn't.
